@@ -455,6 +455,7 @@ header .icons #menu-bars {
 
 .footer .footer-container .box-container .box {
     flex: 1 1 25rem;
+    padding-left: 10%;
 }
 
 .footer .footer-container .box-container .box h3 {
