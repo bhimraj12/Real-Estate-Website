@@ -1,27 +1,6 @@
 <?php
-$host="localhost";
-$user="root";
-$password="";
-$db="real_estate";
+include "./db.php";
 
-mysql_connect($host,$user,$password);
-$mysql_select_db($db);
-
-if(isset($_POST['username'])){
-    $uname= $_POST['username'];
-    $password=$_POST['password'];
-
-    $sql="select * from account_details where USERNAME='".$uname."' AND PASSWORD='".$password."' limit 1";
-    $result=mysql_query($sql);
-    if(mysql_num_rows($result)==1){
-        echo "You have Successfully Logged in.";
-        exit();
-    }
-    else{
-        echo "Login Failed. Please try again.";
-        exit();
-    }
-}
 
 
 
@@ -54,11 +33,11 @@ if(isset($_POST['username'])){
         <a href="#" class="logo"><span>25th</span>Century</a>
 
         <nav class="navbar">
-            <a href="index.html">home</a>
-            <a href="index.html#services">services</a>
-            <a href="index.html#featured">featured</a>
-            <a href="login.html">Login</a>
-            <a href="support.html">contact</a>
+            <a href="index.php">home</a>
+            <a href="index.php#services">services</a>
+            <a href="index.php#featured">featured</a>
+            <a href="login.php">Login</a>
+            <a href="support.php">contact</a>
         </nav>
 
         <div class="icons">
@@ -70,41 +49,76 @@ if(isset($_POST['username'])){
     </header>
 
     <!-- header section ends -->
-    <div class="container">
+    <div class="container <?php
+        if(isset($_GET['msg'])){
+            $message=$_GET['msg'];
+            if($message=='signup'){
+                echo 'sign-up-mode';
+            }
+        }    
+    ?>">
         <div class="forms-container">
             <div class="signin-signup">
-                <form method="POST" action="#" class="sign-in-form">
+                <form method="POST" action="./action.php" class="sign-in-form">
                     <h2 class="title">Sign in</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Username" />
+                        <input type="email" placeholder="email" name="email" required/>
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password" />
+                        <input type="password" placeholder="Password" name="password" required/>
                     </div>
-                    <input type="submit" value="Login" class="btn solid" />
+                    <input type="submit" name="signin" value="Login" class="btn solid" />
+                    <p>
+                        <?php 
+                            if(isset($_GET['msg'])){
+                                $message=$_GET['msg'];
+                                if($message=='success'){
+                                    echo "Registered Successfully.";
+                                }
+                                elseif($message=='fail'){
+                                    echo "Oops!! Something went wrong.";
+                                } 
+                                elseif($message=='signin'){
+                                    echo "Email doesn't exist. ";
+                                } 
+                                elseif($message=='invalid'){
+                                    echo "Please check your Email/Password.";
+                                } 
+                            }
+                        ?>
+                    </p>
                 </form>
-                <form action="#" class="sign-up-form">
+                <form method="POST" action="action.php" class="sign-up-form">
                     <h2 class="title">Sign up</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Username" />
+                        <input type="text" name="username" placeholder="Username" required/>
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email" />
+                        <input type="email" name="email" placeholder="Email" required/>
                     </div>
                     <div class="input-field">
                         <i class="fas fa-mobile"></i>
-                        <input type="tel" maxlength="10" placeholder="Mobile Number" />
+                        <input type="tel" maxlength="10" name="mob" placeholder="Mobile Number" required/>
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password" />
+                        <input type="password" name="password" placeholder="Password" required/>
                     </div>
-                    <input type="submit" class="btn" value="Sign up" />
-                    
+                    <input type="submit" name="signup" class="btn" value="Sign up" />
+                    <?php
+                        if(isset($_GET['msg'])){
+                            $message=$_GET['msg'];
+                            if($message=='signup'){
+                                echo "<p>";
+                                echo "This email is already registered.";
+                                echo"</p>";
+                            }
+                        }
+                    ?>
                 </form>
             </div>
         </div>

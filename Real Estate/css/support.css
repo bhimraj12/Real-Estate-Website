@@ -56,7 +56,7 @@
 .container .contactInfo .box
 {
     position: relative;
-    display: flex;
+    display: block;
     width: 100%;
 }
 .container .contactInfo .box .icon
