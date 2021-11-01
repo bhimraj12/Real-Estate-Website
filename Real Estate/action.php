@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include "./db.php";
 
 if (isset($_POST['signup'])){
@@ -41,7 +41,7 @@ if (isset($_POST['signin'])){
         if($data['EMAIL']==$email && $data['PASSWORD']==$password){
             session_start();
             $_SESSION['ID']=$data['ACCOUNT_ID'];
-            header('Location: ./dashboard.php');
+            header('Location: ./sell.php');
         }
         else{
             header("Location: ./login.php?msg=invalid");
@@ -53,5 +53,27 @@ if (isset($_POST['signin'])){
     }
 }
 
+if (isset($_POST['sell'])){
+    $cost=$_POST['cost'];
+    $name=$_POST['name'];
+    $location=$_POST['location'];
+    $area=$_POST['area'];
+    $bedroom=$_POST['bedroom'];
+    $bathroom=$_POST['bathroom'];
+    $tm=md5(time());
+    $image=$_FILES["image"]["name"];
+    $path_db1="./images/upload/".$tm.$image;
+    move_uploaded_file($_FILES["image"]["tmp_name"],$path_db1);
+    $phno=$_POST['phno'];
+    $stmt= $conn->prepare("INSERT INTO property_master(COST,NAME,LOCATION,AREA,BEDROOM,BATHROOM,IMAGE,ACCOUNT_ID,OWNER_INFO) values (?,?,?,?,?,?,?,?,?)");
+    $stmt->bind_param("sssssssss",$cost,$name,$location,$area,$bedroom,$bathroom,$path_db1,$_SESSION['ID'],$phno);
+    if($stmt->execute()){
+       header("Location:./sell.php?msg=success") ;
+    }
+    else{
+        header("Location:./sell.php?msg=fail") ;
+    }
+    
+}
 
 ?>

@@ -12,11 +12,26 @@ if(!isset($_SESSION['ID'])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/dashboard.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
 </head>
 
 
 <body>
-
+    <?php
+        if(isset($_GET['msg'])){
+            $msg= $_GET['msg'];
+            if($msg=='success'){
+                ?>
+                <script>alert("Congratulations! Property posted for sale.")</script>
+                <?php
+            }
+            elseif($msg=='fail'){
+                ?>
+                <script>alert("OOPs! Something went wrong.")</script>
+                <?php
+            }
+        }
+    ?>
     <div id="mySidenav" class="sidenav">
         <p class="logo"><span>25th</span>-Century</p>
         <a href="sell.php" class="icon-a"><i class="fas fa-rupee-sign"></i> &nbsp;&nbsp;Sell</a>
@@ -33,9 +48,9 @@ if(!isset($_SESSION['ID'])){
                 ?>">
                 <?php
                 if(isset($_SESSION['ID'])){
-                echo "<i class='fas fa-power-off'></i>logout";
+                echo "<i class='fas fa-power-off'></i>&nbsp;&nbsp;logout";
                 }else{
-                echo "<i class='fas fa-power-off'></i>login";
+                echo "<i class='fas fa-power-off'></i>&nbsp;&nbsp;login";
                 }
                 ?>
             </a>
@@ -43,7 +58,21 @@ if(!isset($_SESSION['ID'])){
 
     </div>
     <div id="main">
-        
+        <section class="home" id="home">    
+            <form action="action.php" method="POST" enctype="multipart/form-data">
+                <div class="inputBox">
+                    <input type="text" name="cost" placeholder="cost" id="" required>
+                    <input type="text" name="name" placeholder="name" id="" required>
+                    <input type="text" name="location" placeholder="location" id="" required>
+                    <input type="text" name="area" placeholder="area" id="" required>
+                    <input type="text" name="bedroom" placeholder="bedroom" id="" required>
+                    <input type="text" name="bathroom" placeholder="bathroom" id="" required>
+                    <input type="file" name="image" placeholder="image" id="" required>
+                    <input type="text" name="phno" placeholder="phone number" id="" required>
+                    <input type="submit" name="sell" value="submit" class="btn">
+                </div>
+            </form>
+        </section>
     </div>
 
 

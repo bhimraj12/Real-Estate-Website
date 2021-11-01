@@ -21,93 +21,41 @@ if(!isset($_SESSION['ID'])){
 </head>
 
 <body>
-    <!-- header section starts  -->
+<?php include './shared/nav.php';?>
+    <section class="contact" id="contact">
 
-    <header>
+        <h1 class="heading"> <span>contact</span> us </h1>
 
-        <a href="#" class="logo"><span>25th</span>Century</a>
+        <div class="icons-container">
 
-        <nav class="navbar">
-            <a href="main.php">home</a>
-            <a href="main.php#services">services</a>
-            <a href="main.php#featured">featured</a>
-            <a href="<?php
-                if(isset($_SESSION['ID'])){
-                echo "./logout.php";
-                }else{
-                echo "./login.php";
-                }
-                ?>">
-                <?php
-                if(isset($_SESSION['ID'])){
-                echo "logout";
-                }else{
-                echo "login";
-                }
-                ?>
-            </a>
-            <a href="support.php">contact</a>
-        </nav>
+            <div class="icons">
+                <img src="images/icon-1.png" alt="">
+                <h3>phone number</h3>
+                <p><a href="tel:+919967113410">+919967113410</a></p>
+            </div>
 
-        <div class="icons">
-            <div id="menu-bars" class="fas fa-bars"></div>
-            <a href="./favourites.php" class="fas fa-heart"></a>
-            <a href="./dashboard.php" class="fas fa-user"></a>
-        </div>
+            <div class="icons">
+                <img src="images/icon-2.png" alt="">
+                <h3>email address</h3>
+                <p><a href="mailto:25Century@gmail.com">25Century@gmail.com </a></p>
+            </div>
 
-    </header>
-
-    <!-- header section ends -->
-    <section class="contact">
-        <div class="content">
-            <h2>Contact Us</h2>
-            <p>Feel free to reach us</p>
-            <div class="container">
-                <div class="contactInfo">
-                    <div class="box">
-                        <div class="text">
-                            <h3>Address</h3>
-                            <p>APSIT GB Road, Thane west</p>
-                            <h3>Phone</h3>
-                            <p>111-234-5678</p>
-                            <h3>Email</h3>
-                            <p>abc@gmail.com</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="icons">
+                <img src="images/icon-3.png" alt="">
+                <h3>office address</h3>
+                <p>Juhu, Opp. JW Marriott, Mumbai- 400049</p>
             </div>
 
         </div>
-        <div class="contactForm">
-            <form>
-                <h2>Send Message</h2>
-                <div class="inputBox">
-                    <input type="text" name="" required="required">
-                    <span>Full Name</span>
-                    <div class="inputBox">
-                        <input type="text" name="" required="required">
-                        <span>Email</span>
-                        <div class="inputBox">
-                            <textarea required="required"></textarea>
-                            <span>Type your Message...</span>
-                            <div class="button">
-                                <button>Send</button>
-                            </div>
 
-                        </div>
+        <div class="row">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15080.58269891112!2d72.82078913721537!3d19.10126419317365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9bf95d4ba07%3A0x35047c9c36b6cea1!2sJuhu%2C%20Mumbai%2C%20Maharashtra%20400049!5e0!3m2!1sen!2sin!4v1630849047085!5m2!1sen!2sin"
+                width="100%" height="450px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
-                    </div>
-                </div>
-            </form>
         </div>
 
-
-
-
     </section>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+<?php include './shared/footer.php';?>
 
     <script src="" async defer></script>
     <!-- Javascript animation -->

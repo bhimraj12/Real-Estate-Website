@@ -26,29 +26,7 @@ include "./db.php";
 </head>
 
 <body>
-    <!-- header section starts  -->
-
-    <header>
-
-        <a href="#" class="logo"><span>25th</span>Century</a>
-
-        <nav class="navbar">
-            <a href="index.php">home</a>
-            <a href="index.php#services">services</a>
-            <a href="index.php#featured">featured</a>
-            <a href="login.php">Login</a>
-            <a href="support.php">contact</a>
-        </nav>
-
-        <div class="icons">
-            <div id="menu-bars" class="fas fa-bars"></div>
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-user"></a>
-        </div>
-
-    </header>
-
-    <!-- header section ends -->
+    <?php include './shared/nav.php';?>
     <div class="container <?php
         if(isset($_GET['msg'])){
             $message=$_GET['msg'];
