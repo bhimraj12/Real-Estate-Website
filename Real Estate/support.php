@@ -30,19 +30,19 @@ if(!isset($_SESSION['ID'])){
 
             <div class="icons">
                 <img src="images/icon-1.png" alt="">
-                <h3>phone number</h3>
+                <h3 class="heading"><span>phone</span> number</h3>
                 <p><a href="tel:+919833744259">+919833744259</a></p>
             </div>
 
             <div class="icons">
                 <img src="images/icon-2.png" alt="">
-                <h3>email address</h3>
+                <h3 class="heading"><span>email</span> address</h3>
                 <p><a href="mailto:25Century@gmail.com">25Century@gmail.com </a></p>
             </div>
 
             <div class="icons">
                 <img src="images/icon-3.png" alt="">
-                <h3>office address</h3>
+                <h3 class="heading"><span>office</span> address</h3>
                 <p>Juhu, Opp. JW Marriott, Mumbai- 400049</p>
             </div>
 
