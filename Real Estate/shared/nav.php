@@ -5,9 +5,9 @@
 <a href="index.php" class="logo"><span>25th</span>Century</a>
 
 <nav class="navbar">
-    <a href="index.php"><i class="fas fa-home"></i>home</a>
-    <a href="index.php#services"><i class="fas fa-concierge-bell"></i>services</a>
-    <a href="index.php#featured"><i class="fas fa-star"></i></i>featured</a>
+    <a href="index.php"><i class="fas fa-home"></i> home</a>
+    <a href="index.php#services"><i class="fas fa-concierge-bell"></i> services</a>
+    <a href="index.php#featured"><i class="fas fa-star"></i></i> featured</a>
     <a href="<?php //user logged in or not
         if(isset($_SESSION['ID'])){
         echo "./logout.php";
@@ -17,13 +17,13 @@
         ?>">
         <?php
         if(isset($_SESSION['ID'])){
-        echo "<i class='fas fa-power-off'></i>logout";
+        echo "<i class='fas fa-power-off'></i> logout";
         }else{
-        echo "<i class='fas fa-power-off'></i>login";
+        echo "<i class='fas fa-power-off'></i> login";
         }
         ?>
     </a>
-    <a href="support.php"><i class="fas fa-phone-square-alt"></i>contact</a>
+    <a href="support.php"><i class="fas fa-phone-square-alt"></i> contact</a>
 </nav>
 
 <div class="icons">

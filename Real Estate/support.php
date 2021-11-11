@@ -31,7 +31,7 @@ if(!isset($_SESSION['ID'])){
             <div class="icons">
                 <img src="images/icon-1.png" alt="">
                 <h3>phone number</h3>
-                <p><a href="tel:+919967113410">+919967113410</a></p>
+                <p><a href="tel:+919833744259">+919833744259</a></p>
             </div>
 
             <div class="icons">

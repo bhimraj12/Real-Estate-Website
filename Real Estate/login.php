@@ -80,11 +80,11 @@ include "./db.php";
                     </div>
                     <div class="input-field">
                         <i class="fas fa-mobile"></i>
-                        <input type="tel" maxlength="10" name="mob" placeholder="Mobile Number" required/>
+                        <input type="tel" minlength="10" maxlength="10" name="mob" placeholder="Mobile Number" required/>
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" name="password" placeholder="Password" required/>
+                        <input type="password" name="password" placeholder="Password" id="pass" required/>
                     </div>
                     <input type="submit" name="signup" class="btn" value="Sign up" />
                     <?php
